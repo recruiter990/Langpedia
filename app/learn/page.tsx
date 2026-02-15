@@ -90,13 +90,13 @@ export default function LearnPage() {
       // Award XP based on final score
       const percentage = (finalScore / quizScore.total) * 100;
       if (percentage >= 80) {
-        addXP(50);
-        completeLesson(`${selectedCategory}-quiz`);
-      } else if (percentage >= 60) {
-        addXP(30);
-      } else {
-        addXP(10);
-      }
+  addXP(50);
+  completeLesson()  // ← FIXED! Just remove the parameter
+} else if (percentage >= 60) {
+  addXP(30);
+} else {
+  // ...
+}
     }
   };
 
@@ -311,3 +311,4 @@ export default function LearnPage() {
     </div>
   );
 }
+
