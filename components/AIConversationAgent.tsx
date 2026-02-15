@@ -101,7 +101,7 @@ export function AIConversationAgent() {
 
   // Initialize conversation
   useEffect(() => {
-    const currentScenario = scenarios[scenario];
+    const currentScenario = scenarios[scenario as keyof typeof scenarios];
     setMessages([
       {
         role: 'assistant',
@@ -171,7 +171,7 @@ export function AIConversationAgent() {
 
   const getAIResponse = async (userMessage: string, conversationHistory: Message[]) => {
     // This will call the Anthropic API through the artifact's proxy
-    const currentScenario = scenarios[scenario];
+    const currentScenario = scenarios[scenario as keyof typeof scenarios];
     
     const systemPrompt = `You are ${currentScenario.aiPersona} in a conversation with an Italian learner at ${level} level.
     
@@ -311,7 +311,7 @@ Keep responses natural, friendly, and level-appropriate. Encourage the learner!`
   };
 
   const resetConversation = () => {
-    const currentScenario = scenarios[scenario];
+    const currentScenario = scenarios[scenario as keyof typeof scenarios];
     setMessages([
       {
         role: 'assistant',
@@ -552,7 +552,7 @@ Keep responses natural, friendly, and level-appropriate. Encourage the learner!`
                   📚 Key Vocabulary:
                 </h4>
                 <div className="flex flex-wrap gap-2">
-                  {scenarios[scenario].vocabulary.map((word, idx) => (
+                  {scenarios[scenario as keyof typeof scenarios].vocabulary.map((word, idx) => (
                     <button
                       key={idx}
                       onClick={() => speakText(word)}
