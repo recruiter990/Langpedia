@@ -290,18 +290,18 @@ function TestResults({
           
           <div className="space-y-6">
             {questions.map((question, index) => {
-              const result = result.detailedResults[index];
-              const isCorrect = result?.isCorrect;
+              const detailResult = result.detailedResults[index];
+              const isCorrect = detailResult?.isCorrect;
               
               return (
-                <div
-                  key={question.id}
-                  className={`p-6 rounded-2xl border-2 ${
-                    isCorrect 
-                      ? 'bg-green-50 dark:bg-green-900/20 border-green-500' 
-                      : 'bg-red-50 dark:bg-red-900/20 border-red-500'
-                  }`}
-                >
+    <div
+      key={question.id}
+      className={`p-6 rounded-2xl border-2 ${
+        isCorrect 
+          ? 'bg-green-50 dark:bg-green-900/20 border-green-500' 
+          : 'bg-red-50 dark:bg-red-900/20 border-red-500'
+      }`}
+    >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
                       {isCorrect ? (
